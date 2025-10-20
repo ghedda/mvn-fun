@@ -1,13 +1,12 @@
 package com.mycompany.app;
 
 /**
- * Hello world!
- *
+ * Main application that uses the Factorizer singleton
+ * to factorize numbers passed as command-line arguments.
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello Maven!" );
+public class App {
+    public static void main(String[] args) {
+        Factorizer factorizer = Factorizer.getInstance();
+        factorizer.run(args);
     }
 }
