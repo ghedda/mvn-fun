@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package de.factorizer;
 
 /**
  * Main application that uses the Factorizer singleton
