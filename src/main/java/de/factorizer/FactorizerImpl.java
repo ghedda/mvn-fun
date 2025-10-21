@@ -5,7 +5,7 @@ import java.util.List;
 
 class FactorizerImpl implements Factorizer {
 
-    // Lazy, thread-safe singleton (only one instance)
+    // Lazy, thread-safe singleton (double-checked locking)
     private static volatile FactorizerImpl INSTANCE;
 
     private FactorizerImpl() { }
@@ -46,25 +46,28 @@ class FactorizerImpl implements Factorizer {
     public List<Integer> factorize(Integer n) {
         List<Integer> factors = new ArrayList<>();
         if (n == null) return factors;
+
+        // required by assignment
+        if (n < 0) {
+            throw new IllegalArgumentException("illegal negative parameter: n");
+        }
+
         int x = n;
 
-        if (x < 0) { // handle negatives
-            factors.add(-1);
-            x = -x;
-        }
-        if (x == 0 || x == 1) { // handle edge cases
+        // edge cases
+        if (x == 0 || x == 1) {
             factors.add(n);
             return factors;
         }
 
-        // Factor out 2s
+        // factor out 2s
         while (x % 2 == 0) {
             factors.add(2);
             x /= 2;
         }
 
-        // Factor odd numbers
-        for (int f = 3; f <= Math.sqrt(x); f += 2) {
+        // factor odd numbers
+        for (int f = 3; f * f <= x; f += 2) {
             while (x % f == 0) {
                 factors.add(f);
                 x /= f;
@@ -72,7 +75,6 @@ class FactorizerImpl implements Factorizer {
         }
 
         if (x > 1) factors.add(x); // remaining prime
-
         return factors;
     }
 
