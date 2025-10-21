@@ -3,7 +3,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.mycompany.app</groupId>
+  <groupId>de.factorizer</groupId>
   <artifactId>my-app</artifactId>
   <version>RELEASE-1.0.0</version>
   <name>my-app</name>
@@ -32,7 +32,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>com.mycompany.app.App</mainClass>
+              <mainClass>de.factorizer.App</mainClass>
             </manifest>
           </archive>
         </configuration>

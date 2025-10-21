@@ -76,3 +76,7 @@ temp/
 
 # ignore OSX system files
 .DS_Store
+
+# IntelliJ project files
+.idea/
+*.iml
