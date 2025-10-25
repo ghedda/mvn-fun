@@ -15,10 +15,22 @@ public interface Factorizer {
     void run(String[] args);
 
     /**
-     * Factorize a number {@code n} into prime factors.
-     * @param n number to factorize
-     * @return factors
+     * Method accepts numbers as args and outputs lines with the number n,
+     * its factors and an indicator whether n is a prime number.
+     *
+     * <p>For example:</p>
+     * <ul>
+     *   <li>n=3 -> [3] (prime number)</li>
+     *   <li>n=27 -> [3, 3, 3]</li>
+     *   <li>n=1092 -> [2, 2, 3, 7, 13]</li>
+     *   <li>n=65536 -> [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2]</li>
+     *   <li>n=10952347 -> [7, 23, 59, 1153]</li>
+     *   <li>n=100000039 -> [100000039] (prime number)</li>
+     * </ul>
+     *
+     * @param args numbers to factorize
      */
+
     List<Integer> factorize(Integer n);
 
     /**
