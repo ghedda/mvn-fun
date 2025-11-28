@@ -1,4 +1,5 @@
-package com.mycompany.app;
+package mvn.jdbc.application;
+
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -6,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 /**
  * Unit test for simple App.
  */
-public class AppTest {
+public class ApplicationTest {
 
     @Test
     void shouldAnswerWithTrue() {
