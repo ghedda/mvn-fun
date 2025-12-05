@@ -15,7 +15,7 @@ public class Application {
     // --use logger instead:
     //     log.info("Hello Database!");
     // --------------------
-    private static final Logger log = LogManager.getLogger("db.database");
+    private static final Logger log = LogManager.getLogger("db-logger");
 
     public static void main(String[] args) {
 
