@@ -18,8 +18,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
 
-        <exec.mainClass>mvn.jdbc.application.Application</exec.mainClass>
         <!-- Here is where the value lives -->
+        <exec.mainClass>mvn.jdbc.application.Application</exec.mainClass>
 
         <log4j.version>2.24.1</log4j.version>
         <lombok.version>1.18.32</lombok.version>
@@ -52,11 +52,29 @@
         </dependency>
 
         <!-- Logging with Log4j -->
+
+        <!-- REQUIRED so log4j.properties is recognized (Log4j 1 compatibility API) -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <!-- Log4j2 API -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <!-- Log4j2 Core Implementation -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
             <version>${log4j.version}</version>
         </dependency>
+
+        <!-- Log4j2 SLF4J binding -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j2-impl</artifactId>
@@ -67,6 +85,7 @@
 
     <build>
         <plugins>
+
             <!-- Create executable JAR -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -106,6 +125,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.3.0</version>
             </plugin>
+
         </plugins>
     </build>
 </project>

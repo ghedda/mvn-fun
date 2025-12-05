@@ -2,7 +2,20 @@ package mvn.jdbc.application;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class Application {
+
+    // --------------------
+    // Logger for Step 6
+
+    //--- Never use System.out.println() in product code!
+    // System.out.println("Hello Database!");
+    // --use logger instead:
+    //     log.info("Hello Database!");
+    // --------------------
+    private static final Logger log = LogManager.getLogger("db.database");
 
     public static void main(String[] args) {
 
@@ -27,9 +40,16 @@ public class Application {
         */
 
         // --------------------
-        // Step 5 (Builder Demo)
+        // Step 5 + Step 6 (Builder + Logging Demo)
         // --------------------
-        System.out.println("Hello Database!");
+        log.info("Hello Database!");
+
+        // log messages on different log-levels (Step 6 requirement)
+        log.fatal("log-message at level: fatal");
+        log.error("log-message at level: error");
+        log.warn("log-message at level: warning");
+        log.debug("log-message at level: debug");
+        log.trace("log-message at level: trace");
 
         Database db = Database.builder()
                 .db_url("jdbc:h2:mem:freerider")
@@ -37,6 +57,11 @@ public class Application {
                 .db_password("")
                 .build();
 
-        System.out.println(db);
+        if (db == null) {
+            log.error("error building database, db == null");
+        } else {
+            // log ToString output instead of System.out.println
+            log.info(String.format("Database built with attributes: %s", db.toString()));
+        }
     }
 }
