@@ -6,6 +6,10 @@ public class Application {
 
     public static void main(String[] args) {
 
+        // --------------------
+        // Step 4 (Lombok Demo)
+        // --------------------
+        /*
         System.out.println("Hello Customer!");
 
         Customer c1 = new Customer(1L, "Meyer", "Eric", "eme@gmail.com");
@@ -20,5 +24,19 @@ public class Application {
                 .stream()
                 .filter(c -> c.id() > 1) // fluent getter
                 .forEach(System.out::println); // ToString output
+        */
+
+        // --------------------
+        // Step 5 (Builder Demo)
+        // --------------------
+        System.out.println("Hello Database!");
+
+        Database db = Database.builder()
+                .db_url("jdbc:h2:mem:freerider")
+                .db_user("sa")
+                .db_password("")
+                .build();
+
+        System.out.println(db);
     }
 }
